@@ -1,0 +1,4 @@
+rm -f alpha_beta       LSM_fluid_force               LSM_velocity_field  settings_19    check_state_19        iteration2        LSM_force_field                                   nohup.out           strain         velocity_field
+rm -f    color_field         LOG               LSM_icors                                         output.m            stress
+rm -f        LSM_coord_field                             pressure*           stress_tensor
+rm -f    ind_red_blue  LSM_disf*       

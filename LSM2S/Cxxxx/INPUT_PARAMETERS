@@ -1,0 +1,20 @@
+150       ! ncx 
+150       ! ncy. y unit cell size
+54       ! ncz. z unit cell size
+18.639D0     ! Em1. Young modulus
+0.35065D0    ! nu1. Poisson's ratio  -1 <= nu <= 1/4
+94.529D0     !Em2
+0.0742D0     ! nu2
+1.d0     ! rs. solid medium density
+0.01d0    ! dt. integration time step duration
+1.d0     ! dl. lattice unit step (distance between two lattice nodes)
+1000      ! itm. simulation duration (simulation time = itm*its*dt)
+100    ! its. simulation save parameter (program saves data after each its time steps)
+0.01D0  ! gstrain. the strain imposed on the unit cell
+8        ! nthread. number of threads for the parralel version  (nthread >= 1)
+0        ! read initial values from 'iteration2' file (1-yes/0-no)
+
+! Parameter dt should be < 1 for numerical stability of LSM. The smaller the better.
+! These dl and dt parameters should be appropriately incorporated into LSM and LBM models.
+! In present version of the program dl should be equal 1. If it = 1, then also rs gives the real density,
+! otherwise only the mass of the node.

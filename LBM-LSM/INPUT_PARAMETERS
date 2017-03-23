@@ -1,0 +1,53 @@
+0.3333333333333333D0  cr2   ! red fluid sound speed power 2
+1.D0                  rr0   ! pure red fluid density
+1.D0                  rb0   ! pure blue fluid density
+1.D0                  B     ! interface width parameter (MIN = 0 MAX = 1)
+0.000001D0            sig   ! surface tension coefficient
+0.00625D0             vir   ! red fluid cinematic viscosity
+0.00625D0             vib   ! blue fluid cinematic viscosity
+1.D0                  wet   ! wettability (-1,1) (>0 - red fluid wettable)
+1                     idir  ! direction of the body force (1 - x direction)
+10               itm   ! main loop number of steps
+10000            itw   ! intermediate loop numer of steps
+1                     its   ! save parameter every its*itw
+-0.0000001D0          eps   ! parameter for permeability convergence test : with - it cannot stop
+0                     mtype ! 1 - interpolation at interface, 0 - majority rule
+0                     icon  ! read initial state data from archiv ? (1 - yes, 0 - no)
+0.D0                  sat   ! blue fluid saturation used in intialization 
+1                     iipore! pore filled with fluid
+1                     npores ! number of distinct pores
+0.D0                  ee    ! small number to supress small distributions (min = 0.D0)
+120.D0                 lsize ! linear size for Reynolds number
+0.D0 0.D0 0.D0    bfr   ! red fluid body force
+0.D0 0.D0 0.D0    bfb   ! blue fluid body force
+120        ! ncx. x unit cell size
+120        ! ncy. y unit cell size
+120        ! ncz. z unit cell size
+94.5D0      ! Em. Young modulus
+0.0742d0     ! nu. Poisson's ratio  -1 <= nu <= 1/4
+2.65d0     ! rs. solid medium density
+0.1d0     ! dt. integration time step duration
+1.d0      ! dl. lattice unit step (distance between two lattice nodes)
+
+
+
+0.0333333333333333  ! Em. Young modulus
+0.d0    ! nu. Poisson's ratio  -1 <= nu <= 1/4
+0.1d0   ! rs. solid medium density
+0.1d0   ! dt. integration time step duration
+1.d0    ! dl. lattice unit step (distance between two lattice nodes)
+
+! Notes
+
+! Parameter dt should be < 1 for numerical stability of LSM. The smaller the better.
+! These dl and dt parameters should be appropriately incorporated into LSM and LBM models.
+! In present version of the program dl should be equal 1. If it = 1, then also rs gives the real density,
+! otherwise only the mass of the node.
+
+! Archiv file name for restart is 'iteration2'.
+! Don't stop program when two files 'iteration' and 'iteration2' at the same time exist.
+! If program was stopped and both 'iteration' and 'iteration2' present,
+! before restart program select first the larger of 'iteration', 'iteration2'.
+! Total number of iterations = itm*itw
+! After each itw iterations program calls check_state and saves distributions for restart
+! After each itw*its iterations program calls save_results

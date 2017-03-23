@@ -1,0 +1,1 @@
+pgf95  -mp -fastsse -Mvect   -mcmodel=medium  alfabeta2solid.f  -o  lsm_lbm_2solids_big.exe 

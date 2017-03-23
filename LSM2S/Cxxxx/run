@@ -1,0 +1,2 @@
+rm -f icors iteration2 lsm_settings strain stress stress_tensor write 
+rm -f *field

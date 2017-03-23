@@ -1,0 +1,3 @@
+ulimit -s unlimited
+export OMP_NUM_THREADS=8
+nohup lsm_lbm_1solid_big.exe &
